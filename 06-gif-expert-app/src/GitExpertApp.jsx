@@ -2,20 +2,24 @@ import { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
 
 export const GitExpertApp = () => {
-    const [categories, setCategories] = useState(['uno', 'dos']);
+    
+    const [ categories, setCategories ] = useState([]);
 
-    const onAddCategory = (category) => {
-        setCategories([...categories, category])
+    const onAddCategory = ( newCategory ) => {
+        setCategories([ ...categories, newCategory ])
     }
     
     return (
         <>
             <h1>GitExpertApp</h1>
 
-            <AddCategory setCategories={setCategories} />
+            <AddCategory 
+                // setCategories={ setCategories } 
+                onNewCategory={ e => onAddCategory(e) }
+            />
 
             <ol>
-                { categories.map((category, index) => <li key={index}>{category}</li>) }
+                { categories.map(( category, index ) => <li key={ index }>{ category }</li>) }
             </ol>
         </>
     )
