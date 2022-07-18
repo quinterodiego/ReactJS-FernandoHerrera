@@ -8,6 +8,7 @@ export const GitExpertApp = () => {
 
     const onAddCategory = ( newCategory ) => {
         if ( categories.includes( newCategory )) return;
+        
         setCategories([ ...categories, newCategory ])
     }
     
