@@ -1,12 +1,15 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
+const handleAdd = () => console.log('+1');
 
 export const CounterApp = ({ value }) => {
+
     return (
         <>
             <h1>CounterApp</h1>
             <h2>{ value }</h2>
 
-            <button onClick={ function() { console.log('+1') } }>+1</button>
+            <button onClick={ handleAdd }>+1</button>
         </>
     )
 }
