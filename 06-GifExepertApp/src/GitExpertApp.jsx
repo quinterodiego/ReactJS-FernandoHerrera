@@ -5,21 +5,19 @@ export const GitExpertApp = () => {
 
     const [categories, setCategories] = useState(['Supercampeones']);
 
-    const onAddCategory = () => {
-        setCategories(['Hola Mundo',...categories]);
+    const onAddCategory = (category) => {
+        setCategories([ category,...categories ]);
     }
 
     return (
         <>
             <h1>GifExpertApp</h1>
 
-            <AddCategory />
-            <br /><br />
-            <button onClick={onAddCategory}>Agregar</button>
+            <AddCategory setCategories={ setCategories }/>
 
             <ol>
                 {categories.map( category => {
-                    return <li key={category}>{category}</li>;
+                    return <li key={ category }>{ category }</li>;
                 })}
             </ol>
         </>
