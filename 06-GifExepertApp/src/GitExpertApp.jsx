@@ -1,11 +1,12 @@
 import { useState } from "react"
-import {AddCategory} from './components/AddCategory';
+import { AddCategory } from './components/AddCategory';
 
 export const GitExpertApp = () => {
 
-    const [categories, setCategories] = useState(['Supercampeones']);
+    const [categories, setCategories] = useState([ 'Supercampeones' ]);
 
     const onAddCategory = (category) => {
+        if ( categories.includes(category) ) return;
         setCategories([ category,...categories ]);
     }
 
@@ -13,7 +14,10 @@ export const GitExpertApp = () => {
         <>
             <h1>GifExpertApp</h1>
 
-            <AddCategory setCategories={ setCategories }/>
+            <AddCategory 
+                // setCategories={ setCategories }
+                onNewCategory={ onAddCategory }
+            />
 
             <ol>
                 {categories.map( category => {
