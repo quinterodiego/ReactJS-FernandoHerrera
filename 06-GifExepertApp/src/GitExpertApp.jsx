@@ -4,7 +4,7 @@ import { GifGrid } from "./components/GifGrid";
 
 export const GitExpertApp = () => {
 
-    const [categories, setCategories] = useState([ 'Motherboards' ]);
+    const [categories, setCategories] = useState([ 'Monitores' ]);
 
     const onAddCategory = (category) => {
         if ( categories.includes(category) ) return;
