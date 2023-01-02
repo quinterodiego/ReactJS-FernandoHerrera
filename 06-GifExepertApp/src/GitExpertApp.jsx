@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { AddCategory } from './components/AddCategory';
-import { GifGrid } from "./components/GifGrid";
+import { AddCategory, GifGrid } from './components';
 
 export const GitExpertApp = () => {
 
@@ -16,7 +15,6 @@ export const GitExpertApp = () => {
             <h1>GifExpertApp</h1>
 
             <AddCategory 
-                // setCategories={ setCategories }
                 onNewCategory={ onAddCategory }
             />
 
