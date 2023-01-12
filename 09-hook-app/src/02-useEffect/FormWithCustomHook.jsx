@@ -3,25 +3,13 @@ import {useForm} from './../hooks/useForm'
 
 export const FormWithCustomHook = () => {
 
-    const { formState, onInputChange, username, email, password} = useForm({
+    const { formState, onInputChange, username, email, password, onResetForm} = useForm({
         username: '',
         email: '',
         password: ''
     });
 
     // const {username, email, password} = formState;
-
-    useEffect(() => {
-        // console.log('useEffect called!')
-    }, []);
-
-    useEffect(() => {
-        // console.log('formState changed!')
-    }, [formState]);
-
-    useEffect(() => {
-        // console.log('email changed!')
-    }, [email]);
 
     return (
         <>
@@ -59,6 +47,8 @@ export const FormWithCustomHook = () => {
                 value={password}
                 onChange={onInputChange}
             />
+
+            <button onClick={onResetForm} className="btn btn-primary mt-4">Borrar</button>
         </>
     )
 }
