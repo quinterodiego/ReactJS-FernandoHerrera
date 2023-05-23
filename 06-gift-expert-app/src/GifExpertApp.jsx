@@ -9,7 +9,7 @@ export const GifExpertApp = () => {
         <>
             <h1>GifExpertApp</h1>
 
-            <AddCategory setCategories={setCategories} categories={categories} />
+            <AddCategory setCategories={setCategories} />
 
             <ol>
                 { 
