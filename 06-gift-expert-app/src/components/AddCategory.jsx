@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ onNewCategory }) => {
 
     const [inputValue, setInputValue] = useState('')
+    const ref = useRef('')
 
     const onInputChange = (e) => {
         setInputValue(e.target.value)
@@ -11,8 +12,8 @@ export const AddCategory = ({ setCategories }) => {
     const onSubmit = (e) => {
         e.preventDefault()
         if(inputValue.trim().length <= 1) return
-        setCategories( categories => [...categories, inputValue])
-        setInputValue('')
+        onNewCategory( inputValue.trim() )
+        ref.current.value = ''
     }
 
     return (
@@ -21,7 +22,7 @@ export const AddCategory = ({ setCategories }) => {
                 type="text" 
                 placeholder="Buscar gifs" 
                 onChange={onInputChange}
-
+                ref={ref}
             />
         </form>
     )
