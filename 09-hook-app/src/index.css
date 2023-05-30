@@ -1,12 +1,7 @@
 body {
-    padding: 20px;
+  padding: 20px;
 }
 
 button {
-    margin-right: 10px;
-}
-
-a {
-    margin-right: 5px;
-    text-decoration: none;
+  margin-right: 10px;
 }
