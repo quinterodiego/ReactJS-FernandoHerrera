@@ -54,7 +54,7 @@ export const LoginPage = () => {
                         </Grid>
 
                         <Grid container direction='row' justifyContent='end'>
-                            Crear una cuenta                          
+                            Link               
                         </Grid>
 
                     </Grid>
