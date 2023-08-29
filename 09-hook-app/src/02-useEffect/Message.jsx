@@ -2,21 +2,16 @@ import { useEffect } from "react"
 
 export const Message = () => {
 
-    useEffect(() => {
-        
-        window.addEventListener('mousemove', (e) => {
-            console.log(e)
-        })
-        
-        return () => {
-            console.log('Message Unmounted')
-        }
-    }, [])
-    
+  useEffect(() => {
+    console.log('Mesagge Mounted')
+  
+    return () => {
+      console.log('Message Unmounted')
+    }
+  }, [])
+  
 
-    return (
-        <>
-            <h3>Usuario ya existe</h3>
-        </>
-    )
+  return (
+    <p className="alert alert-danger mt-2">Usuario ya existe</p>
+  )
 }
