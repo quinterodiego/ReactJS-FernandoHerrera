@@ -9,9 +9,7 @@ export const useFetch = (url) => {
   })
 
   const getFetch = async () => {
-    const resp = await fetch(url, {headers: {
-      'X-Api-Key': 'wBsCeit0SfqkSxMH0mHrpQ==JUINdnohJF697qA8'
-    }})
+    const resp = await fetch(url)
     const data = await resp.json()
     setState({
       data,
