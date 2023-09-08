@@ -1,12 +1,13 @@
 import { useState } from "react"
-import { AddCategory } from "./components/AddCategory"
+import { AddCategory, GifGrid } from "./components"
 
 export const GifExpertApp = () => {
 
   const [categories, setCategories] = useState(['computers'])
 
-  const onAddCategory = () => {
-    setCategories([...categories, 'smartphones'])
+  const onNewCategory = (category) => {
+    if(categories.includes(category)) return
+    setCategories([category, ...categories])
   }
 
   return (
@@ -14,15 +15,14 @@ export const GifExpertApp = () => {
         <h1>GifExpertApp</h1>
         <hr />
 
-        <AddCategory />
-        <button onClick={onAddCategory}>Agregar</button>
-        <ol>
-          {
-            categories.map(category => (
-              <li key={category}>{category}</li>
-            ))
-          }
-        </ol>
+        <AddCategory onNewCategory={onNewCategory} />
+
+        {
+          categories.map(category => (
+            <GifGrid key={category} category={category}/>
+          ))
+        }
+
     </>
   )
 }
