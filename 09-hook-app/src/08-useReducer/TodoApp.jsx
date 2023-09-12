@@ -25,7 +25,7 @@ export const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialState, init)
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos) || [])
+    localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
   
 
@@ -44,13 +44,20 @@ export const TodoApp = () => {
     })
   }
 
+  const hanldeToggleTodo = (id) => {
+    dispatch({
+      type: '[TODO] Toggle Todo',
+      payload: id
+    })
+  }
+
   return (
     <>
       <h1>TodoApp: 10 / <small>Pendientes: 2</small></h1>
       <hr />
 
       <div className="row">
-        <TodoList todos={todos} onRemoveTodo={handleRemoveTodo}/>
+        <TodoList todos={todos} onRemoveTodo={handleRemoveTodo} onToggleTodo={hanldeToggleTodo}/>
         <div className="col-5">
           <h4>Agregar TODO</h4>
           <hr />
