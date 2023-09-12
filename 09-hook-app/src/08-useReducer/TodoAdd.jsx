@@ -1,6 +1,6 @@
 import { useForm } from "../hooks/useForm"
 
-export const TodoAdd = () => {
+export const TodoAdd = ({ onNewTodo }) => {
 
   const {description, onInputChange, onResetForm} = useForm({
     description: ''
@@ -8,16 +8,19 @@ export const TodoAdd = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault()
-    if(decription.length <= 1) return
+    if(description.length <= 1) return
     const newTodo = {
       id: new Date().getTime(),
       description: description,
       done: false
     }
+
+    onNewTodo(newTodo)
+    onResetForm()
   }
 
   return (
-    <form>
+    <form onSubmit={onFormSubmit}>
       <input 
         type="text"
         placeholder="Qué hay que hacer?"
