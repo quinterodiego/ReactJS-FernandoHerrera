@@ -3,17 +3,29 @@ import { Link, NavLink } from "react-router-dom"
 export const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary rounded-3">
         <div className="container-fluid">
           <Link className="navbar-brand" href="/">useContext</Link>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" href="#">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Features</a>
-              </li>
+              <NavLink 
+                to="/"
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              >
+                Home
+              </NavLink>
+              <NavLink 
+                to="/about"
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              >
+                About
+              </NavLink>
+              <NavLink 
+                to="/login"
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              >
+                Login
+              </NavLink>
             </ul>
           </div>
         </div>
