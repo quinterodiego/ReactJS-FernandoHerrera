@@ -1,28 +1,22 @@
 import { useState } from "react"
-import { AddCategory, GifGrid } from "./components"
+import { AddCategory } from "./components/AddCategory"
+import { GifGrid } from "./components/GifGrid"
 
 export const GifExpertApp = () => {
 
-  const [categories, setCategories] = useState(['computers'])
+  const [categories, setCategories] = useState(['Iphone'])
 
-  const onNewCategory = (category) => {
+  const onAddCategory = (category) => {
     if(categories.includes(category)) return
-    setCategories([category, ...categories])
+    setCategories([ ...categories, category ])
   }
 
   return (
     <>
-        <h1>GifExpertApp</h1>
-        <hr />
-
-        <AddCategory onNewCategory={onNewCategory} />
-
-        {
-          categories.map(category => (
-            <GifGrid key={category} category={category}/>
-          ))
-        }
-
+      <h1>GifExpertApp</h1>
+      <hr />
+      <AddCategory onAddCategory={onAddCategory} />
+      <GifGrid />
     </>
   )
 }
