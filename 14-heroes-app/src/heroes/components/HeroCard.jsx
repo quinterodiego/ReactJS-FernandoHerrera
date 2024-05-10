@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export const HeroCard = (heroe) => {
+  console.log(heroe)
   const {id,
     superhero,
     publisher,
@@ -15,7 +16,7 @@ export const HeroCard = (heroe) => {
     <div className="col">
       <div className="card">
         <div className="row no-gutters">
-          <div className="col-4">
+          <div className="col-4 animate__animated animate__fadeIn">
             <img src={heroImage} alt={superhero} className="card-img" />
           </div>
           <div className="col-8">
