@@ -9,13 +9,13 @@ export const AuthLayout = ({ children, title = '' }) => {
       direction={'column'}
       alignItems={'center'}
       justifyContent={'center'}
-      sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4 }}
+      sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 24 }}
     >
       <Grid
         className='box-shadow'
-        xs={5}
-        item={true}
-        sx={{ backgroundColor: 'white.main', padding: 3, borderRadius: 2 }}
+        xs={3}
+        item
+        sx={{ width: { sm: 450 }, backgroundColor: 'white.main', padding: 3, borderRadius: 2 }}
       >
         <Typography variant='h5'sx={{ mb: 1 }} >{title}</Typography>
         {children}
