@@ -3,7 +3,7 @@ import { Grid, Typography } from "@mui/material"
 
 export const AuthLayout = ({ children, title = '' }) => {
   return (
-    <Grid 
+    <Grid
       container
       spacing={0}
       direction={'column'}
@@ -12,7 +12,7 @@ export const AuthLayout = ({ children, title = '' }) => {
       sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 24 }}
     >
       <Grid
-        className='box-shadow'
+        className={'box-shadow'} 
         xs={3}
         item
         sx={{ width: { sm: 450 }, backgroundColor: 'white.main', padding: 3, borderRadius: 2 }}
