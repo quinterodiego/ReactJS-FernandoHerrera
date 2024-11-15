@@ -1,12 +1,14 @@
-import { useMemo } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { SaveOutlined } from '@mui/icons-material'
 import { Button, TextField, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { ImageGallery } from '../components/ImageGallery'
 import { useForm } from '../../hooks/useForm'
+import { setActiveNote } from '../../store/journal'
 export const NoteView = () => {
 
+  const dispatch = useDispatch();
   const { active: note } = useSelector(state => state.journal)
 
   const { title, body, date, onInputChange, formState } = useForm(note)
@@ -15,6 +17,10 @@ export const NoteView = () => {
     const newDate = new Date(date);
     return newDate.toUTCString();
   }, [date])
+
+  useEffect(() => {
+    dispatch(setActiveNote(formState))
+  }, [formState])
 
   return (
     <Grid container direction={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ mb: 1 }}>
