@@ -1,5 +1,6 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers/getHeroById";
+import { useMemo } from "react";
 
 export const HeroPage = () => {
 
