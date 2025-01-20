@@ -1,6 +1,8 @@
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
+import Grid2 from '@mui/material/Grid2';
+import { Button } from '@mui/material';
 
 export const LoginPage = () => {
   return (
@@ -23,11 +25,12 @@ export const LoginPage = () => {
           >
             <Grid 
               item
-              xs={ 12 }
+              size={ 12 }
               sx={{ mt: 2 }}
             >
               <TextField
                 label="Email"
+                type='email'
                 placeholder='email@gmail.com'
                 fullWidth                
               />
@@ -35,14 +38,23 @@ export const LoginPage = () => {
 
             <Grid 
               item
-              xs={ 12 }
+              size={ 12 }
               sx={{ mt: 2 }}
             >
               <TextField
                 label="Contraseña"
+                type='password'
                 placeholder='Contraseña'
                 fullWidth                
               />
+            </Grid>
+
+            <Grid size={12} container spacing={2} sx={{ my: 2 }}>
+              <Grid item size={12}>
+                <Button variant='contained' fullWidth>
+                  Login
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </form>
