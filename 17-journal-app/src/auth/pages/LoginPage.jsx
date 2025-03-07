@@ -5,11 +5,23 @@ import { Button, Link } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import { Link as RouterLink } from 'react-router-dom';
 import { AuthLayout } from '../layout/AuthLayout';
+import { useForm } from '../../hooks/useForm';
 
 export const LoginPage = () => {
+
+  const { email, password, onInputChange, formState } = useForm({
+    email: '',
+    password: ''
+  });
+
+  const onSumbit = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+  }  
+
   return (
     <AuthLayout title='Login'>
-      <form>
+      <form onSubmit={onSumbit}>
         <Grid 
           container
         >
@@ -22,7 +34,8 @@ export const LoginPage = () => {
               label="Email"
               type='email'
               placeholder='email@gmail.com'
-              fullWidth                
+              fullWidth
+              onChange={onInputChange}                
             />
           </Grid>
 
@@ -35,7 +48,8 @@ export const LoginPage = () => {
               label="Contraseña"
               type='password'
               placeholder='Contraseña'
-              fullWidth                
+              fullWidth           
+              onChange={onInputChange}                
             />
           </Grid>
 
